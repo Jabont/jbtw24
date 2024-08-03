@@ -1,0 +1,169 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `components` layer
+ *
+ * “Add more opinionated, complex classes like buttons, form controls, alerts,
+ * etc; the sort of pre-built components you often see in other frameworks that
+ * you might need to override with utility classes.”
+ *
+ * — from https://tailwindcss.com/docs/plugins#adding-components
+ */
+
+/**
+ * Post title styles
+ *
+ * These will be applied to all headings with a `page-title` or `entry-title`
+ * class on the frontend and to the post title in the block editor.
+ *
+ * The supplied styles are meant to match the default `h1` classes from
+ * Tailwind Typography.
+ */
+.page-title,
+.entry-title {
+	@apply max-w-content mx-auto mb-6 text-3xl font-extrabold text-heading;
+}
+
+/**
+ * Layout styles for centered content areas
+ *
+ * If you are controlling the width of your content area with styles applied
+ * to its container, you can delete the following styles whose selectors begin
+ * with `.page-content >` and `.entry-content >`. For more details, please see
+ * the following:
+ *
+ * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
+ */
+.page-content > *,
+.entry-content > * {
+	/* Content width from the `theme.json` file */
+	@apply max-w-content mx-auto;
+}
+
+.entry-content > .alignwide {
+	/* Wide width from the `theme.json` file */
+	@apply max-w-wide;
+}
+
+.entry-content > .alignfull {
+	@apply max-w-none;
+}
+
+.entry-content > .alignleft {
+	@apply float-left mr-8;
+}
+
+.entry-content > .alignright {
+	@apply float-right ml-8;
+}
+
+
+/*
+============= 💖 ==============
+For JBTW24 Theme (tailwind.css)
+============= 💖 ==============
+*/
+
+:root :where(.wp-element-button, .wp-block-button__link){
+    @apply bg-button;
+}
+
+.cont-pd{
+    @apply mx-auto container px-4;
+}
+
+.jb-container{
+    @apply mx-auto max-w-screen-xl p-4 sm:p-6 lg:p-8;
+}
+.jb-container.-more-y{
+    @apply py-8 sm:py-12;
+}
+.entry-footer {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+}
+.entry-footer .post-edit-link::before{
+	content: "📝 ";
+}
+.entry-footer .post-edit-link{
+	opacity: .5;
+}
+.entry-footer .post-edit-link:hover{
+	opacity: 1;
+}
+
+/* Main Menu */
+.main-menu-mashead{
+	@apply flex flex-wrap  md:justify-start md:flex-nowrap z-50 w-full;
+}
+.main-menu-inner{
+	@apply relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8;
+}
+.main-menu-item{
+	@apply  p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100;
+}
+.main-menu-item.-active{
+	@apply bg-gray-100;
+}
+.main-menu-dropdown{
+	@apply [--strategy:static] md:[--strategy:fixed] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false] ;
+}
+.main-menu-dropdown-2{
+	@apply [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--is-collapse:true] md:[--is-collapse:false] relative;
+}
+
+
+.main-menu-dropdown-toggle{
+	@apply w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100;
+}
+
+.main-menu-dropdown-toggle-2{
+	@apply w-full flex justify-between items-center text-sm text-gray-800 rounded-lg p-2 md:px-3 hover:bg-gray-100 focus:outline-none focus:bg-gray-100;
+}
+
+.main-menu-dropdown-list{
+	@apply absolute transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] opacity-0 w-full md:w-52 z-10 top-full ps-7 md:ps-0 md:bg-white md:rounded-lg md:shadow-xl before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden after:absolute after:top-1 after:start-[18px] after:w-0.5 after:h-[calc(100%-0.25rem)] after:bg-gray-100;
+	pointer-events: none;
+	top: calc(100% + 4px);
+	will-change: opacity;
+}
+.main-menu-dropdown-list-2{
+	@apply absolute transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] opacity-0 md:w-48 z-10 md:mt-2 md:!mx-[10px] md:top-0 md:end-full ps-7 md:ps-0 md:bg-white md:rounded-lg md:shadow-md before:hidden md:before:block before:absolute before:-end-5 before:top-0 before:h-full before:w-5 md:after:hidden after:absolute after:top-1 after:start-[18px] after:w-0.5 after:h-[calc(100%-0.25rem)] after:bg-gray-100;
+	pointer-events: none;
+    position: absolute;
+    margin-top: 8px;
+}
+.main-menu-dropdown[aria-expanded="1"] .main-menu-dropdown-list{
+	@apply opacity-100;
+	pointer-events: auto;
+}
+.main-menu-dropdown-2[aria-expanded="1"] .main-menu-dropdown-list-2{
+	@apply opacity-100;
+	pointer-events: auto;
+	margin-top: 0;
+}
+
+.main-menu-dropdown-list-item{
+	@apply p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100
+}
+
+
+/* Content Page */
+#content{
+	@apply mt-12 px-4 sm:px-6;
+}
+body{
+	--admin-bar-h:32px;
+}
+body.admin-bar{
+	--admin-bar-h:32px;
+}
+#page_container{
+	display: grid;
+    min-height: calc(100dvh - var(--admin-bar-h));
+	grid-template-rows: 1fr auto;
+}
+/* 
+============= 👆 ==============
+[End] For JBTW24 Theme (tailwind.css) 
+============= 👆 ==============
+*/
