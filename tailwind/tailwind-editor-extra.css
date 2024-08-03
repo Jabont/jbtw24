@@ -11,7 +11,7 @@
  * the block editor.
  */
 
- /* มาแก้ได้ แสดงผลหลังบ้านตรง Editor */
+/* มาแก้ได้ แสดงผลหลังบ้านตรง Editor */
 .entry-header,
 .entry-content {
 	@apply px-8;
