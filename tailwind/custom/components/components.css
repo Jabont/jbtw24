@@ -23,15 +23,15 @@
 }
 
 /**
-  * Layout styles for centered content areas
-  *
-  * If you are controlling the width of your content area with styles applied
-  * to its container, you can delete the following styles whose selectors begin
-  * with `.page-content >` and `.entry-content >`. For more details, please see
-  * the following:
-  *
-  * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
-  */
+ * Layout styles for centered content areas
+ *
+ * If you are controlling the width of your content area with styles applied
+ * to its container, you can delete the following styles whose selectors begin
+ * with `.page-content >` and `.entry-content >`. For more details, please see
+ * the following:
+ *
+ * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
+ */
 .page-content>*,
 .entry-content>* {
 	/* Content width from the `theme.json` file */
@@ -71,29 +71,42 @@
 }
 
 .jb-container {
-	@apply mx-auto max-w-screen-xl p-4 sm:p-6 lg:p-8;
+	@apply mx-auto max-w-screen-xl p-4;
 }
 
 .jb-container.-more-y {
 	@apply py-8 sm:py-12;
 }
 
-.entry-footer {
+.admin-footer {
+	padding: 0 .5rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #0002;
+	color: #fff;
+	border-radius: 10rem;
 	position: fixed;
 	bottom: 1rem;
-	left: 1rem;
+	right: 1rem;
+	text-transform: uppercase;
+	overflow: hidden;
+	font-size: 0;
+	transition: all .2s;
+	font-weight: bold;
+	vertical-align: middle;
 }
 
-.entry-footer .post-edit-link::before {
-	content: "📝 ";
+.admin-footer .post-edit-link::before {
+	content: "✏️ ";
+	font-size: 12px;
 }
 
-.entry-footer .post-edit-link {
-	opacity: .5;
-}
-
-.entry-footer .post-edit-link:hover {
+.admin-footer:hover {
 	opacity: 1;
+	font-size: 12px;
+	background: #0009;
 }
 
 /* Main Menu */
@@ -102,7 +115,7 @@
 }
 
 .main-menu-inner {
-	@apply relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8;
+	@apply relative jb-container w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2;
 }
 
 .main-menu-item {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying single posts
  *
@@ -12,24 +13,19 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 
-		<?php if ( ! is_page() ) : ?>
-			<div class="entry-meta">
-				<?php jbtw24_entry_meta(); ?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<?php jbtw24_post_thumbnail(); ?>
 
-	<div <?php jbtw24_content_class( 'entry-content' ); ?>>
+	<div <?php jbtw24_content_class('entry-content'); ?>>
 		<?php
 		the_content(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers. */
-					__( 'Continue reading<span class="sr-only"> "%s"</span>', 'jbtw24' ),
+					__('Continue reading<span class="sr-only"> "%s"</span>', 'jbtw24'),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -42,15 +38,11 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div>' . __( 'Pages:', 'jbtw24' ),
+				'before' => '<div>' . __('Pages:', 'jbtw24'),
 				'after'  => '</div>',
 			)
 		);
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php jbtw24_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 
 </article><!-- #post-${ID} -->
