@@ -1,4 +1,5 @@
 <?php
+
 /**
  * JBTW24 functions and definitions
  *
@@ -7,7 +8,7 @@
  * @package JBTW24
  */
 
-if ( ! defined( 'JBTW24_VERSION' ) ) {
+if (!defined('JBTW24_VERSION')) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -15,10 +16,10 @@ if ( ! defined( 'JBTW24_VERSION' ) ) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define( 'JBTW24_VERSION', '0.1.0' );
+	define('JBTW24_VERSION', '0.1.0');
 }
 
-if ( ! defined( 'JBTW24_TYPOGRAPHY_CLASSES' ) ) {
+if (!defined('JBTW24_TYPOGRAPHY_CLASSES')) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
@@ -42,7 +43,7 @@ if ( ! defined( 'JBTW24_TYPOGRAPHY_CLASSES' ) ) {
 	);
 }
 
-if ( ! function_exists( 'jbtw24_setup' ) ) :
+if (!function_exists('jbtw24_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -50,17 +51,18 @@ if ( ! function_exists( 'jbtw24_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function jbtw24_setup() {
+	function jbtw24_setup()
+	{
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on JBTW24, use a find and replace
 		 * to change 'jbtw24' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'jbtw24', get_template_directory() . '/languages' );
+		load_theme_textdomain('jbtw24', get_template_directory() . '/languages');
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -68,20 +70,20 @@ if ( ! function_exists( 'jbtw24_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'jbtw24' ),
-				'menu-2' => __( 'Footer Menu', 'jbtw24' ),
+				'menu-1' => __('Primary', 'jbtw24'),
+				'menu-2' => __('Footer Menu', 'jbtw24'),
 			)
 		);
 
@@ -103,35 +105,36 @@ if ( ! function_exists( 'jbtw24_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 
 		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
+		add_theme_support('editor-styles');
 
 		// Enqueue editor styles.
-		add_editor_style( 'style-editor.css' );
-		add_editor_style( 'style-editor-extra.css' );
+		add_editor_style('style-editor.css');
+		add_editor_style('style-editor-extra.css');
 
 		// Add support for responsive embedded content.
-		add_theme_support( 'responsive-embeds' );
+		add_theme_support('responsive-embeds');
 
 		// Remove support for block templates.
-		remove_theme_support( 'block-templates' );
+		remove_theme_support('block-templates');
 	}
 endif;
-add_action( 'after_setup_theme', 'jbtw24_setup' );
+add_action('after_setup_theme', 'jbtw24_setup');
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function jbtw24_widgets_init() {
+function jbtw24_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer', 'jbtw24' ),
+			'name'          => __('Footer', 'jbtw24'),
 			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'jbtw24' ),
+			'description'   => __('Add widgets here to appear in your footer.', 'jbtw24'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -139,26 +142,28 @@ function jbtw24_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'jbtw24_widgets_init' );
+add_action('widgets_init', 'jbtw24_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function jbtw24_scripts() {
-	wp_enqueue_style( 'jbtw24-style', get_stylesheet_uri(), array(), JBTW24_VERSION );
-	wp_enqueue_script( 'jbtw24-script', get_template_directory_uri() . '/js/script.min.js', array(), JBTW24_VERSION, true );
+function jbtw24_scripts()
+{
+	wp_enqueue_style('jbtw24-style', get_stylesheet_uri(), array(), JBTW24_VERSION);
+	wp_enqueue_script('jbtw24-script', get_template_directory_uri() . '/js/script.min.js', array(), JBTW24_VERSION, true);
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'jbtw24_scripts' );
+add_action('wp_enqueue_scripts', 'jbtw24_scripts');
 
 /**
  * Enqueue the block editor script.
  */
-function jbtw24_enqueue_block_editor_script() {
-	if ( is_admin() ) {
+function jbtw24_enqueue_block_editor_script()
+{
+	if (is_admin()) {
 		wp_enqueue_script(
 			'jbtw24-editor',
 			get_template_directory_uri() . '/js/block-editor.min.js',
@@ -169,10 +174,10 @@ function jbtw24_enqueue_block_editor_script() {
 			JBTW24_VERSION,
 			true
 		);
-		wp_add_inline_script( 'jbtw24-editor', "tailwindTypographyClasses = '" . esc_attr( JBTW24_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
+		wp_add_inline_script('jbtw24-editor', "tailwindTypographyClasses = '" . esc_attr(JBTW24_TYPOGRAPHY_CLASSES) . "'.split(' ');", 'before');
 	}
 }
-add_action( 'enqueue_block_assets', 'jbtw24_enqueue_block_editor_script' );
+add_action('enqueue_block_assets', 'jbtw24_enqueue_block_editor_script');
 
 /**
  * Add the Tailwind Typography classes to TinyMCE.
@@ -180,11 +185,12 @@ add_action( 'enqueue_block_assets', 'jbtw24_enqueue_block_editor_script' );
  * @param array $settings TinyMCE settings.
  * @return array
  */
-function jbtw24_tinymce_add_class( $settings ) {
+function jbtw24_tinymce_add_class($settings)
+{
 	$settings['body_class'] = JBTW24_TYPOGRAPHY_CLASSES;
 	return $settings;
 }
-add_filter( 'tiny_mce_before_init', 'jbtw24_tinymce_add_class' );
+add_filter('tiny_mce_before_init', 'jbtw24_tinymce_add_class');
 
 /**
  * Custom template tags for this theme.
@@ -195,3 +201,108 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+
+// New JB Function
+
+// ========== JBPX REMOVE COMMENT
+add_action('admin_init', function () {
+	// Redirect any user trying to access comments page
+	global $pagenow;
+
+	if ($pagenow === 'edit-comments.php') {
+		wp_safe_redirect(admin_url());
+		exit;
+	}
+
+	// Remove comments metabox from dashboard
+	remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+
+	// Disable support for comments and trackbacks in post types
+	foreach (get_post_types() as $post_type) {
+		if (post_type_supports($post_type, 'comments')) {
+			remove_post_type_support($post_type, 'comments');
+			remove_post_type_support($post_type, 'trackbacks');
+		}
+	}
+});
+
+
+// >>>------------------ Close comments on the front-end 
+add_filter('comments_open', '__return_false', 20, 2);
+add_filter('pings_open', '__return_false', 20, 2);
+
+// Hide existing comments
+add_filter('comments_array', '__return_empty_array', 10, 2);
+
+// Remove comments page in menu
+add_action('admin_menu', function () {
+	remove_menu_page('edit-comments.php');
+});
+
+// Remove comments links from admin bar
+add_action('init', function () {
+	if (is_admin_bar_showing()) {
+		remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+	}
+});
+
+// Close comments on the front-end ------------------<<<
+
+function pre($x, $title = '', $expand = -1)
+{
+	if ($title != '') {
+		$title = '>>>>>> ' . $title;
+	}
+	echo "<div class='jb-pre' data-expand='$expand' style='color: #eee; font-size: 14px; background-color: #44403c; max-width: 100%; font-family: sans-serif;border-radius: 12px;border:1px solid rgb(28, 25, 23);overflow:hidden;margin:0 0 1rem'><header onclick='this.parentElement.dataset.expand *= -1' style='text-transform: uppercase;background:#292524;width:100%;padding: 0.5rem 1rem;
+	font-weight: 700;color:rgb(234, 179, 8);letter-spacing:.25em'>📒 $title</header><pre style='margin:0;padding: 1rem;width:100%;font-size:12px;font-family: monospace,monospace;font-size: 1em;'>";
+	print_r($x);
+	echo "</pre>";
+	echo "<div class='-footer' style='padding: 0.2rem; padding-left: 0.5rem; background: #1b1917; font-family: monospace;'>" . get_caller_file() . "</div></div>";
+}
+function get_caller_file()
+{
+	$backtrace = debug_backtrace();
+	$caller = $backtrace[1];
+	if (isset($caller['file'])) {
+		$dir = "[";
+		$dir .=  $caller['line'];
+		$dir .=  "] ";
+		$dir .= str_replace(ABSPATH, '', $caller['file']);
+
+		return $dir;
+	} else {
+		return 'Unknown';
+	}
+}
+
+function ofsize($array)
+{
+	$size = 0;
+	if (is_array($array)) {
+		$size = sizeof($array);
+	}
+	return $size;
+}
+
+// ========== JBPX WP SUPER
+add_action('wp_logout', 'auto_redirect_after_logout');
+function auto_redirect_after_logout()
+{
+	$redirect_url = $_SERVER['HTTP_REFERER'];
+	if (!empty($_REQUEST['redirect_to'])) {
+		wp_safe_redirect($_REQUEST['redirect_to']);
+	} else {
+		wp_redirect($redirect_url);
+	}
+	exit();
+}
+
+
+add_filter('auth_cookie_expiration', 'extend_login_session');
+
+function extend_login_session($expire)
+{
+
+	return 31556926; // seconds for 1 year time period
+}
