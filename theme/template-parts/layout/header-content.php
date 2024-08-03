@@ -110,7 +110,7 @@ if (ofsize($main_menu) > 0) {
 									} else {
 									?>
 										<!-- Dropdown -->
-										<div id="main_menu_item_<?= $key ?>" class="main-menu-dropdown" aria-expanded="-1" onmouseenter="this.ariaExpanded = 1" onmouseleave="this.ariaExpanded = -1">
+										<div id="main_menu_item_<?= $key ?>" class="main-menu-dropdown" aria-expanded="-1">
 											<button id="main_menu_item_<?= $key ?>_toggle" type="button" class="main-menu-dropdown-toggle" onclick="this.parentElement.ariaExpanded *= -1" aria-haspopup="menu" aria-label="<?= $v['title'] ?>">
 												<?= $v['title'] ?>
 												<svg class="duration-300 shrink-0 size-4 ms-auto md:ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -118,7 +118,7 @@ if (ofsize($main_menu) > 0) {
 												</svg>
 											</button>
 
-											<div class="main-menu-dropdown-list" role="menu">
+											<div class="main-menu-dropdown-list transition-[opacity, margin] duration-[0.1ms] md:duration-[150ms] opacity-0 w-full md:w-52 z-10 top-full ps-7 md:ps-0 md:bg-white md:rounded-lg md:shadow-xl before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden after:absolute after:top-1 after:start-[18px] after:w-0.5 after:h-[calc(100%-0.25rem)] after:bg-gray-100" role="menu">
 												<div class="py-1 md:px-1 space-y-0.5">
 
 													<?php
@@ -140,7 +140,7 @@ if (ofsize($main_menu) > 0) {
 																	</svg>
 																</button>
 
-																<div class="main-menu-dropdown-list-2" role="menu" aria-orientation="vertical">
+																<div class="main-menu-dropdown-list-2 transition-[opacity, margin] duration-[0.1ms] md:duration-[150ms] opacity-0 md:w-48 z-10 md:mt-2 md: !mx-[10px] md:top-0 md:end-full ps-7 md:ps-0 md:bg-white md:rounded-lg md:shadow-md before:hidden md:before:block before:absolute before:-end-5 before:top-0 before:h-full before:w-5 md:after:hidden after:absolute after:top-1 after:start-[18px] after:w-0.5 after:h-[calc(100%-0.25rem)] after:bg-gray-100" role="menu" aria-orientation="vertical">
 																	<div class="p-1 space-y-1">
 																		<?php
 																		foreach ($c['child'] as $gci => $gckey) {

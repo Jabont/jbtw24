@@ -773,48 +773,48 @@ body {
 }
 
 /**
- * Layout styles for centered content areas
- *
- * If you are controlling the width of your content area with styles applied
- * to its container, you can delete the following styles whose selectors begin
- * with `.page-content >` and `.entry-content >`. For more details, please see
- * the following:
- *
- * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
- */
+  * Layout styles for centered content areas
+  *
+  * If you are controlling the width of your content area with styles applied
+  * to its container, you can delete the following styles whose selectors begin
+  * with `.page-content >` and `.entry-content >`. For more details, please see
+  * the following:
+  *
+  * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
+  */
 
-.page-content > *,
-.entry-content > * {
+.page-content>*,
+.entry-content>* {
   /* Content width from the `theme.json` file */
   margin-left: auto;
   margin-right: auto;
   max-width: 64rem;
 }
 
-.entry-content > .alignwide {
+.entry-content>.alignwide {
   /* Wide width from the `theme.json` file */
   max-width: 72rem;
 }
 
-.entry-content > .alignfull {
+.entry-content>.alignfull {
   max-width: none;
 }
 
-.entry-content > .alignleft {
+.entry-content>.alignleft {
   float: left;
   margin-right: 2rem;
 }
 
-.entry-content > .alignright {
+.entry-content>.alignright {
   float: right;
   margin-left: 2rem;
 }
 
 /*
-============= 💖 ==============
-For JBTW24 Theme (tailwind.css)
-============= 💖 ==============
-*/
+ ============= 💖 ==============
+ For JBTW24 Theme (tailwind.css)
+ ============= 💖 ==============
+ */
 
 :root :where(.wp-element-button, .wp-block-button__link) {
   --tw-bg-opacity: 1;
@@ -899,15 +899,15 @@ For JBTW24 Theme (tailwind.css)
   left: 1rem;
 }
 
-.entry-footer .post-edit-link::before{
+.entry-footer .post-edit-link::before {
   content: "📝 ";
 }
 
-.entry-footer .post-edit-link{
+.entry-footer .post-edit-link {
   opacity: .5;
 }
 
-.entry-footer .post-edit-link:hover{
+.entry-footer .post-edit-link:hover {
   opacity: 1;
 }
 
@@ -1076,122 +1076,12 @@ For JBTW24 Theme (tailwind.css)
 
 .main-menu-dropdown-list {
   position: absolute;
-  top: 100%;
-  z-index: 10;
-  width: 100%;
-  padding-inline-start: 1.75rem;
-  opacity: 0;
-  transition-property: opacity,margin;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.1ms;
-}
-
-.main-menu-dropdown-list::before {
-  position: absolute;
-  top: -1rem;
-  inset-inline-start: 0px;
-  height: 1.25rem;
-  content: var(--tw-content);
-  width: 100%;
-}
-
-.main-menu-dropdown-list::after {
-  position: absolute;
-  top: 0.25rem;
-  inset-inline-start: 18px;
-  height: calc(100% - 0.25rem);
-  width: 0.125rem;
-  content: var(--tw-content);
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-@media (min-width: 768px) {
-  .main-menu-dropdown-list {
-    width: 13rem;
-    border-radius: 0.5rem;
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-    padding-inline-start: 0px;
-    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-    transition-duration: 150ms;
-  }
-
-  .main-menu-dropdown-list::after {
-    content: var(--tw-content);
-    display: none;
-  }
-}
-
-.main-menu-dropdown-list{
   pointer-events: none;
   top: calc(100% + 4px);
   will-change: opacity;
 }
 
 .main-menu-dropdown-list-2 {
-  position: absolute;
-  z-index: 10;
-  padding-inline-start: 1.75rem;
-  opacity: 0;
-  transition-property: opacity,margin;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.1ms;
-}
-
-.main-menu-dropdown-list-2::before {
-  position: absolute;
-  inset-inline-end: -1.25rem;
-  top: 0px;
-  display: none;
-  height: 100%;
-  content: var(--tw-content);
-  width: 1.25rem;
-}
-
-.main-menu-dropdown-list-2::after {
-  position: absolute;
-  top: 0.25rem;
-  inset-inline-start: 18px;
-  height: calc(100% - 0.25rem);
-  width: 0.125rem;
-  content: var(--tw-content);
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-@media (min-width: 768px) {
-  .main-menu-dropdown-list-2 {
-    top: 0px;
-    inset-inline-end: 100%;
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-    margin-top: 0.5rem;
-    width: 12rem;
-    border-radius: 0.5rem;
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-    padding-inline-start: 0px;
-    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-    transition-duration: 150ms;
-  }
-
-  .main-menu-dropdown-list-2::before {
-    content: var(--tw-content);
-    display: block;
-  }
-
-  .main-menu-dropdown-list-2::after {
-    content: var(--tw-content);
-    display: none;
-  }
-}
-
-.main-menu-dropdown-list-2{
   pointer-events: none;
   position: absolute;
   margin-top: 8px;
@@ -1253,25 +1143,25 @@ For JBTW24 Theme (tailwind.css)
   }
 }
 
-body{
-  --admin-bar-h:32px;
+body {
+  --admin-bar-h: 32px;
 }
 
-body.admin-bar{
-  --admin-bar-h:32px;
+body.admin-bar {
+  --admin-bar-h: 32px;
 }
 
-#page_container{
+#page_container {
   display: grid;
   min-height: calc(100dvh - var(--admin-bar-h));
   grid-template-rows: 1fr auto;
 }
 
 /* 
-============= 👆 ==============
-[End] For JBTW24 Theme (tailwind.css) 
-============= 👆 ==============
-*/
+ ============= 👆 ==============
+ [End] For JBTW24 Theme (tailwind.css) 
+ ============= 👆 ==============
+ */
 
 /**
  * This injects Tailwind's utility classes and any utility classes registered
@@ -1296,6 +1186,19 @@ body.admin-bar{
 
 .relative {
   position: relative;
+}
+
+.top-full {
+  top: 100%;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.\!mx-\[10px\] {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
 }
 
 .my-2 {
@@ -1494,6 +1397,10 @@ body.admin-bar{
   padding-bottom: 7px;
 }
 
+.ps-7 {
+  padding-inline-start: 1.75rem;
+}
+
 .text-\[12px\] {
   font-size: 12px;
 }
@@ -1516,6 +1423,10 @@ body.admin-bar{
   font-weight: 600;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
@@ -1529,6 +1440,10 @@ body.admin-bar{
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 .shadow-sm {
@@ -1547,6 +1462,10 @@ body.admin-bar{
   transition-duration: 300ms;
 }
 
+.duration-\[0\.1ms\] {
+  transition-duration: 0.1ms;
+}
+
 .content-none {
   --tw-content: none;
   content: var(--tw-content);
@@ -1560,6 +1479,87 @@ body.admin-bar{
  *
  * https://tailwindcss.com/docs/plugins#adding-utilities
  */
+
+.before\:absolute::before {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.before\:-end-5::before {
+  content: var(--tw-content);
+  inset-inline-end: -1.25rem;
+}
+
+.before\:-top-4::before {
+  content: var(--tw-content);
+  top: -1rem;
+}
+
+.before\:start-0::before {
+  content: var(--tw-content);
+  inset-inline-start: 0px;
+}
+
+.before\:top-0::before {
+  content: var(--tw-content);
+  top: 0px;
+}
+
+.before\:hidden::before {
+  content: var(--tw-content);
+  display: none;
+}
+
+.before\:h-5::before {
+  content: var(--tw-content);
+  height: 1.25rem;
+}
+
+.before\:h-full::before {
+  content: var(--tw-content);
+  height: 100%;
+}
+
+.before\:w-5::before {
+  content: var(--tw-content);
+  width: 1.25rem;
+}
+
+.before\:w-full::before {
+  content: var(--tw-content);
+  width: 100%;
+}
+
+.after\:absolute::after {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.after\:start-\[18px\]::after {
+  content: var(--tw-content);
+  inset-inline-start: 18px;
+}
+
+.after\:top-1::after {
+  content: var(--tw-content);
+  top: 0.25rem;
+}
+
+.after\:h-\[calc\(100\%-0\.25rem\)\]::after {
+  content: var(--tw-content);
+  height: calc(100% - 0.25rem);
+}
+
+.after\:w-0\.5::after {
+  content: var(--tw-content);
+  width: 0.125rem;
+}
+
+.after\:bg-gray-100::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
 
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
@@ -1609,6 +1609,14 @@ body.admin-bar{
 }
 
 @media (min-width: 768px) {
+  .md\:end-full {
+    inset-inline-end: 100%;
+  }
+
+  .md\:top-0 {
+    top: 0px;
+  }
+
   .md\:mx-2 {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -1623,6 +1631,10 @@ body.admin-bar{
     margin-inline-start: 0.25rem;
   }
 
+  .md\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -1633,6 +1645,14 @@ body.admin-bar{
 
   .md\:h-4 {
     height: 1rem;
+  }
+
+  .md\:w-48 {
+    width: 12rem;
+  }
+
+  .md\:w-52 {
+    width: 13rem;
   }
 
   .md\:w-px {
@@ -1660,9 +1680,18 @@ body.admin-bar{
     gap: 0.25rem;
   }
 
+  .md\:rounded-lg {
+    border-radius: 0.5rem;
+  }
+
   .md\:bg-gray-300 {
     --tw-bg-opacity: 1;
     background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  }
+
+  .md\:bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
   .md\:px-1 {
@@ -1673,6 +1702,36 @@ body.admin-bar{
   .md\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+
+  .md\:ps-0 {
+    padding-inline-start: 0px;
+  }
+
+  .md\:shadow-md {
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .md\:shadow-xl {
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .md\:duration-\[150ms\] {
+    transition-duration: 150ms;
+  }
+
+  .md\:before\:block::before {
+    content: var(--tw-content);
+    display: block;
+  }
+
+  .md\:after\:hidden::after {
+    content: var(--tw-content);
+    display: none;
   }
 }
 
