@@ -12,41 +12,43 @@
 <?php
 $main_menu = wp_get_nav_menu_items('main-menu');
 $main_menu_item = [];
-foreach ($main_menu as $key => $v) {
-	$item_id = $v->ID;
-	$parent_id = $v->menu_item_parent;
-	$main_menu_item[$item_id] = array(
-		"level" => -1,
-		"title" => $v->title,
-		"url" => $v->url,
-		"ID" => $item_id,
-		"key" => $key,
-		"parent" => $parent_id,
-		"has_parent" => false,
-		"child" => [],
-		"has_child" => false,
-		"class" => implode(' ', $v->classes),
-		"target" => $v->target
-	);
-	if ($post->ID == $v->object_id) $main_menu_item[$item_id]['class'] .= ' -active';
-	if ($v->menu_item_parent == 0) {
-		$main_menu_item[$item_id]["level"] = 0;
-	} else {
-		if ($main_menu_item[$parent_id]["parent"] == 0) {
-			$main_menu_item[$item_id]["level"] = 1;
-		} else if ($main_menu_item[$main_menu_item[$parent_id]["parent"]]["parent"] == 0) {
-			$main_menu_item[$item_id]["level"] = 2;
-		}
-		array_push($main_menu_item[$parent_id]["child"], $item_id);
-		if (!$main_menu_item[$parent_id]["has_child"]) {
-			$main_menu_item[$parent_id]["has_child"] = true;
-			$main_menu_item[$parent_id]["class"] .= ' -has-child';
-		}
+if (ofsize($main_menu) > 0) {
+	foreach ($main_menu as $key => $v) {
+		$item_id = $v->ID;
+		$parent_id = $v->menu_item_parent;
+		$main_menu_item[$item_id] = array(
+			"level" => -1,
+			"title" => $v->title,
+			"url" => $v->url,
+			"ID" => $item_id,
+			"key" => $key,
+			"parent" => $parent_id,
+			"has_parent" => false,
+			"child" => [],
+			"has_child" => false,
+			"class" => implode(' ', $v->classes),
+			"target" => $v->target
+		);
+		if ($post->ID == $v->object_id) $main_menu_item[$item_id]['class'] .= ' -active';
+		if ($v->menu_item_parent == 0) {
+			$main_menu_item[$item_id]["level"] = 0;
+		} else {
+			if ($main_menu_item[$parent_id]["parent"] == 0) {
+				$main_menu_item[$item_id]["level"] = 1;
+			} else if ($main_menu_item[$main_menu_item[$parent_id]["parent"]]["parent"] == 0) {
+				$main_menu_item[$item_id]["level"] = 2;
+			}
+			array_push($main_menu_item[$parent_id]["child"], $item_id);
+			if (!$main_menu_item[$parent_id]["has_child"]) {
+				$main_menu_item[$parent_id]["has_child"] = true;
+				$main_menu_item[$parent_id]["class"] .= ' -has-child';
+			}
 
-		$main_menu_item[$item_id]["has_parent"] = true;
-		if (!$main_menu_item[$item_id]["has_parent"]) {
 			$main_menu_item[$item_id]["has_parent"] = true;
-			$main_menu_item[$item_id]['class'] .= ' -has-parent';
+			if (!$main_menu_item[$item_id]["has_parent"]) {
+				$main_menu_item[$item_id]["has_parent"] = true;
+				$main_menu_item[$item_id]['class'] .= ' -has-parent';
+			}
 		}
 	}
 }
